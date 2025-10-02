@@ -1,0 +1,22 @@
+```json
+{
+  "name": "PromptDJ MIDI myfirstanalog",
+  "description": "Control real time music with a MIDI controller.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
+```
+
+### Description
+
+This file describes the application's core identity and requirements for its deployment platform, ensuring proper integration and functionality. For AI Studio, it helps in understanding the application's purpose and any special needs it might have, such as requesting permissions for specific browser features.
+
+### Fields
+
+*   **`name`**: (String) The display name of the application. For this project, it is `"PromptDJ MIDI myfirstanalog"`.
+
+*   **`description`**: (String) A brief summary of what the application does. Here, it's `"Control real time music with a MIDI controller."`.
+
+*   **`requestFramePermissions`**: (Array of Strings) Specifies any browser permissions the application needs to request. This is typically related to accessing sensitive browser APIs or device features that the application requires to function, such as camera access, microphone input, or specific hardware interactions. In this project, this array is empty, indicating no special frame permissions are required.
+
+*   **`prompt`**: (String) An optional field that can contain an initial prompt or configuration passed to the underlying AI model or system. In the context of PromptDJ, this field might be used to provide an initial directive or theme to the AI music generation model when the application starts. If the application were designed to start with a specific musical theme, this field might contain a prompt such as `'Create a melancholic piano melody.'`. Currently, it is an empty string `""`, meaning no initial prompt is provided.

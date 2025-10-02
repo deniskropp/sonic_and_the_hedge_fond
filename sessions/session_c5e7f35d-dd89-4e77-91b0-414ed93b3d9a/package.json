@@ -1,0 +1,34 @@
+Documentation for `package.json`:
+
+This file (`package.json`) serves as the manifest for the `promptdj-midi-myfirstanalog` project. It contains metadata about the project, defines scripts for common tasks, and lists its dependencies.
+
+### Project Metadata
+
+*   **`name`**: `promptdj-midi-myfirstanalog` - The name of the package.
+*   **`private`**: `true` - Indicates that this package is not intended to be published to a package registry.
+*   **`version`**: `0.0.0` - The current version of the package.
+*   **`type`**: `module` - Specifies that this project uses ECMAScript modules (ESM) for its JavaScript code, allowing the use of `import` and `export` syntax natively.
+
+### Scripts
+
+These are command-line scripts defined for convenience:
+
+*   **`dev`**: `vite` - Starts the Vite development server, enabling hot module replacement and fast iteration during development.
+*   **`build`**: `vite build` - Compiles and bundles the project for production using Vite.
+*   **`preview`**: `vite preview` - Serves the production build locally to preview the deployed application.
+
+### Dependencies
+
+These are the external libraries the project relies on:
+
+*   **Runtime Dependencies**: Libraries required for the application to run.
+    *   `@google/genai` (`^1.0.0`): The official Google Generative AI SDK, used for interacting with AI models.
+    *   `lit` (`^3.3.0`): A simple library for building web components with declarative templates and reactive properties.
+*   **Development Dependencies**: Libraries required for development and building, but not for the runtime application.
+    *   `@types/node` (`^22.140`): Node.js type definitions for TypeScript, providing type safety for Node.js APIs.
+    *   `typescript` (`~5.8.2`): The TypeScript compiler, used to transpile TypeScript code into JavaScript.
+    *   `vite` (`^6.2.0`): A modern frontend build tool that provides an extremely fast development server and optimized production builds.
+
+**Note on Versioning:**
+*   The caret (`^`) before a version number (e.g., `^1.0.0`) indicates that compatible updates are allowed. This means the package manager can install any version from `1.0.0` up to, but not including, `2.0.0`.
+*   The tilde (`~`) before a version number (e.g., `~5.8.2`) allows only patch-level updates. This means the package manager can install any version from `5.8.2` up to, but not including, `5.9.0`.

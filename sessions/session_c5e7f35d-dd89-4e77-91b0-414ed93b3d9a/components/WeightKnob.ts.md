@@ -1,0 +1,29 @@
+## Component: WeightKnob
+
+### Purpose
+
+The `WeightKnob` component is a custom web component that visually represents and allows interaction with the 'weight' of a musical prompt. In the context of the PromptDJ MIDI project, prompt weight influences the AI's generation, and this knob provides a tangible interface for adjusting it.
+
+### Visual Representation
+
+- **Knob Design:** The component renders a stylized circular knob with a background gradient and a foreground arc that indicates the current `value` (weight). A moving dot on the arc signifies the exact position of the weight.
+- **Halo Effect:** A dynamic halo effect surrounds the knob. Its size and visibility are determined by the current `value` and the `audioLevel` property. The halo's color is set by the `color` property, making it visually distinct for different prompts.
+- **Color Mapping:** The `color` property defines the primary color used for the halo and the foreground arc, directly linking the knob's appearance to the prompt it controls.
+- **Audio Level Reactivity:** The `audioLevel` property influences the halo's scale, making the visual feedback more dynamic and responsive to the audio output.
+
+### Interactive Features
+
+- **Pointer Interaction:** Users can click and drag vertically on the knob to adjust its `value`. The `dragStartPos` and `dragStartValue` properties track the interaction to calculate the change in value.
+- **Mouse Wheel Interaction:** The knob also supports mouse wheel scrolling (`@wheel` event) for fine-tuning the `value`.
+- **Input Event:** When the `value` is changed through interaction (drag or wheel), the component dispatches an `input` event with the new `value` as its detail. This allows parent components to update their state accordingly.
+- **Value Clamping:** The `value` is clamped between 0 and 2, ensuring it stays within the expected range for prompt weighting.
+
+### Properties
+
+- `value` (Number): Represents the current weight of the prompt, ranging from 0 to 2. Default is 0.
+- `color` (String): The color associated with the prompt, used for the halo and the active arc. Default is '#000'.
+- `audioLevel` (Number): A value between 0 and 1 representing the current audio analysis level, used to modify the halo's scale.
+
+### Events
+
+- `input`: Dispatched whenever the knob's `value` changes due to user interaction. The event detail contains the new numeric value.

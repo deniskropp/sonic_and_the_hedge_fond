@@ -1,0 +1,537 @@
+{
+    "high_level_goal": "Document the PromptDJ MIDI myfirstanalog project",
+    "reasoning": "The user wants documentation for the provided codebase. This plan breaks down the documentation process into manageable steps, assigning writing and review tasks to specialized agents.",
+    "roles": [
+        {
+            "title": "Documentation Writer",
+            "purpose": "To generate clear, concise, and accurate technical documentation based on provided specifications, source code, and developer notes."
+        },
+        {
+            "title": "Documentation Reviewer",
+            "purpose": "To review documentation drafts for clarity, technical accuracy, grammatical correctness, and adherence to project style guides, providing constructive feedback for improvement."
+        },
+        {
+            "title": "Task-Agnostic Step (TAS) extractor",
+            "purpose": "To identify and return each 'Task Agnostic Step' (TAS) towards the high-level goal."
+        },
+        {
+            "title": "AI Tutor",
+            "purpose": "To facilitate knowledge transfer between agents and ensure consistent understanding of project goals and documentation standards."
+        },
+        {
+            "title": "Prompt Engineer",
+            "purpose": "To structure workflows and ensure clarity in agent instructions, including system prompt engineering."
+        }
+    ],
+    "tasks": [
+        {
+            "id": "T1",
+            "description": "Identify all Task Agnostic Steps (TAS) required to document the PromptDJ MIDI myfirstanalog project.",
+            "role": "Task-Agnostic Step (TAS) extractor",
+            "agent": "uTASe",
+            "requires": []
+        },
+        {
+            "id": "T2",
+            "description": "For each identified TAS, create a detailed system prompt for the Documentation Writer (Lex) and Documentation Reviewer (Critique) agents. Ensure prompts are clear, actionable, and aligned with the project's goals.",
+            "role": "Prompt Engineer",
+            "agent": "Lyra",
+            "requires": [
+                "T1"
+            ]
+        },
+        {
+            "id": "T3",
+            "description": "Provide context and knowledge transfer to Lex and Critique regarding the PromptDJ MIDI myfirstanalog project, its architecture, and the specific documentation requirements for each TAS.",
+            "role": "AI Tutor",
+            "agent": "AI Tutor",
+            "requires": [
+                "T2"
+            ]
+        },
+        {
+            "id": "T4",
+            "description": "Generate documentation for the 'README.md' file. This includes summarizing the project's purpose, features, and setup instructions based on the provided content.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T5",
+            "description": "Review the generated documentation for 'README.md' for accuracy, clarity, and completeness. Provide feedback to Lex.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T4"
+            ]
+        },
+        {
+            "id": "T6",
+            "description": "Revise the 'README.md' documentation based on feedback from Critique.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T5"
+            ]
+        },
+        {
+            "id": "T7",
+            "description": "Generate documentation for the 'package.json' file. Focus on explaining the project's dependencies and scripts.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T8",
+            "description": "Review the generated documentation for 'package.json'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T7"
+            ]
+        },
+        {
+            "id": "T9",
+            "description": "Revise the 'package.json' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T8"
+            ]
+        },
+        {
+            "id": "T10",
+            "description": "Generate documentation for the 'metadata.json' file, explaining its purpose and key fields.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T11",
+            "description": "Review the generated documentation for 'metadata.json'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T10"
+            ]
+        },
+        {
+            "id": "T12",
+            "description": "Revise the 'metadata.json' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T11"
+            ]
+        },
+        {
+            "id": "T13",
+            "description": "Generate documentation for the 'tsconfig.json' file, explaining its configuration options for TypeScript compilation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T14",
+            "description": "Review the generated documentation for 'tsconfig.json'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T13"
+            ]
+        },
+        {
+            "id": "T15",
+            "description": "Revise the 'tsconfig.json' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T14"
+            ]
+        },
+        {
+            "id": "T16",
+            "description": "Generate documentation for the 'components/PlayPauseButton.ts' file, explaining its functionality, properties, and rendering logic.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T17",
+            "description": "Review the generated documentation for 'components/PlayPauseButton.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T16"
+            ]
+        },
+        {
+            "id": "T18",
+            "description": "Revise the 'components/PlayPauseButton.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T17"
+            ]
+        },
+        {
+            "id": "T19",
+            "description": "Generate documentation for the 'components/PromptController.ts' file, detailing its role in managing prompts, MIDI CC mapping, and user input.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T20",
+            "description": "Review the generated documentation for 'components/PromptController.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T19"
+            ]
+        },
+        {
+            "id": "T21",
+            "description": "Revise the 'components/PromptController.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T20"
+            ]
+        },
+        {
+            "id": "T22",
+            "description": "Generate documentation for the 'components/PromptDjMidi.ts' file, explaining its grid layout, prompt management, MIDI input handling, and playback controls.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T23",
+            "description": "Review the generated documentation for 'components/PromptDjMidi.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T22"
+            ]
+        },
+        {
+            "id": "T24",
+            "description": "Revise the 'components/PromptDjMidi.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T23"
+            ]
+        },
+        {
+            "id": "T25",
+            "description": "Generate documentation for the 'components/ToastMessage.ts' file, describing its function for displaying user notifications.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T26",
+            "description": "Review the generated documentation for 'components/ToastMessage.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T25"
+            ]
+        },
+        {
+            "id": "T27",
+            "description": "Revise the 'components/ToastMessage.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T26"
+            ]
+        },
+        {
+            "id": "T28",
+            "description": "Generate documentation for the 'components/WeightKnob.ts' file, explaining its visual representation of prompt weight and its interactive features.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T29",
+            "description": "Review the generated documentation for 'components/WeightKnob.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T28"
+            ]
+        },
+        {
+            "id": "T30",
+            "description": "Revise the 'components/WeightKnob.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T29"
+            ]
+        },
+        {
+            "id": "T31",
+            "description": "Generate documentation for the 'index.tsx' file, covering the main application setup, component integration, and event handling.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T32",
+            "description": "Review the generated documentation for 'index.tsx'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T31"
+            ]
+        },
+        {
+            "id": "T33",
+            "description": "Revise the 'index.tsx' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T32"
+            ]
+        },
+        {
+            "id": "T34",
+            "description": "Generate documentation for the 'types.ts' file, defining the core data structures and types used throughout the project.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T35",
+            "description": "Review the generated documentation for 'types.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T34"
+            ]
+        },
+        {
+            "id": "T36",
+            "description": "Revise the 'types.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T35"
+            ]
+        },
+        {
+            "id": "T37",
+            "description": "Generate documentation for the 'utils/AudioAnalyser.ts' file, explaining its role in analyzing audio levels.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T38",
+            "description": "Review the generated documentation for 'utils/AudioAnalyser.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T37"
+            ]
+        },
+        {
+            "id": "T39",
+            "description": "Revise the 'utils/AudioAnalyser.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T38"
+            ]
+        },
+        {
+            "id": "T40",
+            "description": "Generate documentation for the 'utils/LiveMusicHelper.ts' file, detailing its interaction with the AI model, audio processing, and playback control.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T41",
+            "description": "Review the generated documentation for 'utils/LiveMusicHelper.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T40"
+            ]
+        },
+        {
+            "id": "T42",
+            "description": "Revise the 'utils/LiveMusicHelper.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T41"
+            ]
+        },
+        {
+            "id": "T43",
+            "description": "Generate documentation for the 'utils/MidiDispatcher.ts' file, explaining its MIDI message handling and event dispatching.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T44",
+            "description": "Review the generated documentation for 'utils/MidiDispatcher.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T43"
+            ]
+        },
+        {
+            "id": "T45",
+            "description": "Revise the 'utils/MidiDispatcher.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T44"
+            ]
+        },
+        {
+            "id": "T46",
+            "description": "Generate documentation for the 'utils/audio.ts' file, covering audio encoding, decoding, and blob creation utilities.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T47",
+            "description": "Review the generated documentation for 'utils/audio.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T46"
+            ]
+        },
+        {
+            "id": "T48",
+            "description": "Revise the 'utils/audio.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T47"
+            ]
+        },
+        {
+            "id": "T49",
+            "description": "Generate documentation for the 'utils/throttle.ts' file, explaining the throttling utility function.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T50",
+            "description": "Review the generated documentation for 'utils/throttle.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T49"
+            ]
+        },
+        {
+            "id": "T51",
+            "description": "Revise the 'utils/throttle.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T50"
+            ]
+        },
+        {
+            "id": "T52",
+            "description": "Generate documentation for the 'vite.config.ts' file, explaining the Vite configuration for the project.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T3"
+            ]
+        },
+        {
+            "id": "T53",
+            "description": "Review the generated documentation for 'vite.config.ts'.",
+            "role": "Documentation Reviewer",
+            "agent": "Critique",
+            "requires": [
+                "T52"
+            ]
+        },
+        {
+            "id": "T54",
+            "description": "Revise the 'vite.config.ts' documentation.",
+            "role": "Documentation Writer",
+            "agent": "Lex",
+            "requires": [
+                "T53"
+            ]
+        },
+        {
+            "id": "T55",
+            "description": "Consolidate all reviewed and revised documentation into a final, coherent document set for the PromptDJ MIDI myfirstanalog project.",
+            "role": "Documentation Orchestrator",
+            "agent": "Scribe",
+            "requires": [
+                "T6",
+                "T9",
+                "T12",
+                "T15",
+                "T18",
+                "T21",
+                "T24",
+                "T27",
+                "T30",
+                "T33",
+                "T36",
+                "T39",
+                "T42",
+                "T45",
+                "T48",
+                "T51",
+                "T54"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+## TypeScript Configuration (`tsconfig.json`)
+
+The `tsconfig.json` file configures the TypeScript compiler for the project. It specifies options for how TypeScript code should be compiled into JavaScript, including target ECMAScript version, module system, type checking, and path aliases.
+
+### Compiler Options:
+
+*   **`target`: `ES2022`**
+    *   Specifies the ECMAScript target version for compiled JavaScript output. `ES2022` ensures modern JavaScript features are supported and can be used directly, aligning with current browser and Node.js standards.
+*   **`experimentalDecorators`: `true`**
+    *   Enables experimental support for ES decorators. This is often required by libraries like Lit (used in this project) for declarative element definitions (`@customElement`, `@property`, etc.).
+*   **`useDefineForClassFields`: `false`**
+    *   Controls how class fields are defined. Setting this to `false` maintains compatibility with older JavaScript class field proposals or specific transpilation behaviors, potentially aligning with Vite's build process and ensuring consistent behavior across different environments.
+*   **`module`: `ESNext`**
+    *   Sets the module system for the output. `ESNext` indicates that the compiler should use the latest ECMAScript module syntax, which is standard for modern web development and compatible with Vite's module handling.
+*   **`lib`**: `["ES2022", "DOM", "DOM.Iterable"]`
+    *   Specifies the built-in libraries to be included in the compilation context. This ensures that types for modern JavaScript (`ES2022`), the Document Object Model (`DOM`), and iterable protocols (`DOM.Iterable`) are available during development.
+*   **`skipLibCheck`: `true`**
+    *   Skips type checking of declaration files (`.d.ts`). This can significantly speed up compilation times, especially in projects with many third-party libraries, by avoiding redundant checks.
+*   **`types`: `["node"]`**
+    *   Includes type definitions for Node.js. This is useful for projects that might use Node.js-specific APIs or run in a Node.js environment (e.g., during the build process).
+*   **`moduleResolution`: `bundler`**
+    *   Configures how modules are resolved. `bundler` mode is optimized for module bundlers like Vite, ensuring efficient and predictable module resolution.
+*   **`isolatedModules`: `true`**
+    *   Ensures that each file can be transpiled independently without any loss of information. This is a common requirement for modern build tools and supports features like hot module replacement.
+*   **`moduleDetection`: `force`**
+    *   Forces the compiler to use ES module detection, even in CommonJS files. This helps enforce module boundaries and prevent accidental script-like behavior, promoting a more robust module system.
+*   **`allowJs`: `true`**
+    *   Allows JavaScript files to be included in the compilation. This is useful for gradual adoption of TypeScript or when integrating with existing JavaScript code.
+*   **`jsx`: `react-jsx`**
+    *   Specifies the JSX transform. `react-jsx` enables the use of JSX syntax, commonly used in React and compatible frameworks. While this project uses Lit, this setting might be a remnant or intended for potential future use or integration with tools that expect JSX.
+*   **`paths`: `{"@/*": ["./*"]}`**
+    *   Defines a path mapping, allowing the use of the `@` alias to import modules from the project's root directory (e.g., `@/utils/audio` instead of `../../utils/audio`). This improves import clarity and maintainability. This is a common convention supported by Vite for organizing project-level imports.
+*   **`allowImportingTsExtensions`: `true`**
+    *   Enables importing TypeScript files (`.ts`, `.tsx`) directly, even if they have extensions that are typically ignored by default (like `.jsx`). This works well with Vite's module handling.
+*   **`noEmit`: `true`**
+    *   Instructs the TypeScript compiler not to emit output files (JavaScript). This is common when using a bundler like Vite, which handles the compilation and bundling process itself.
