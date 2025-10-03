@@ -1,4 +1,3 @@
-```markdown
 # AudioAnalyser Utility
 
 This module provides a simple `AudioAnalyser` class for monitoring and reporting the current audio level within the application. It leverages the Web Audio API's `AnalyserNode` to capture frequency data, from which an average audio level is calculated. This level can then be used by other components, such as UI elements, to visually represent the current audio intensity.
@@ -82,4 +81,4 @@ This module provides a simple `AudioAnalyser` class for monitoring and reporting
 ## Internal Structure
 
 The `AudioAnalyser` class extends `EventTarget` to enable dispatching custom events. The `loop` method is designed to be called repeatedly via `requestAnimationFrame`, ensuring smooth updates. The `node` property is the direct interface to the Web Audio API's `AnalyserNode`, allowing for detailed frequency analysis if needed, though this class focuses on the average level.
-```
+`
